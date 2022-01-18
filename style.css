@@ -1,0 +1,70 @@
+* { /* Configurando a página */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body { /* Estilizando plano de fundo da página */
+    height: 100vh;
+    display: flex;
+    background-color:#F4A460;
+}
+
+button { /* Estilizando o botão atualizar */
+    width: 120px;
+    height: 30px;
+    margin: 5px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    color: 	#ffffff;
+    background-color:#B8860B;
+}
+
+button:hover { /* muda a cor do botão ao passar o mouse */
+    background-color: #F4A460;
+}
+
+.memory-game { /* Estilizando a div onde vai ser realizado o jogo */
+    height: 640px;
+    width: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card { /* Estilizando a div onde vai conter cada imagem */
+    height: calc( 33,333% - 10px);
+    width: calc( 25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(1, 1, 1, .3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatada no plano */
+    transition: transform .9s; /* adiciona efeito de movimento ao flip do card */
+}
+
+.card:active { /* Movimenta a carta ao tocar com o mouse */
+    transform: scale(0.97); 
+    transition: transform .3s;
+}
+
+.card-front, /* Dando o mesmo estilo para frente e verso das cartas */
+.card-back {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: #ffffff;
+    backface-visibility: hidden;
+}
+
+.card-front { /* Rotação da carta */
+    transform: rotateY(180deg);
+}
+
+.card.flip { /* flip card animation */
+    transform: rotateY(180deg);
+}
